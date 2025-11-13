@@ -1,0 +1,307 @@
+.container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.header p {
+    color: #ccc;
+    font-size: 1.1rem;
+}
+
+/* Loading */
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    color: #fff;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #333;
+    border-left: 4px solid #e50914;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Error */
+.errorContainer {
+    text-align: center;
+    background: #1a1a1a;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    color: #fff;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.errorContainer h2 {
+    color: #e50914;
+    margin-bottom: 15px;
+}
+
+.retryButton {
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.retryButton:hover {
+    background: #ff1a1a;
+}
+
+/* Empty State */
+.emptyState {
+    text-align: center;
+    background: #1a1a1a;
+    padding: 60px 40px;
+    border-radius: 12px;
+    border: 2px dashed #333;
+    color: #fff;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.emptyIcon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.emptyState h3 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.emptyState p {
+    color: #ccc;
+    margin-bottom: 25px;
+}
+
+.buyButton {
+    background: linear-gradient(135deg, #e50914 0%, #b8070f 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.buyButton:hover {
+    background: linear-gradient(135deg, #ff1a1a 0%, #d40a12 100%);
+}
+
+/* Grid de Ingressos */
+.ingressosGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+.ingressoCard {
+    background: #1a1a1a;
+    border-radius: 12px;
+    border: 1px solid #333;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.ingressoCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    border-color: #e50914;
+}
+
+.ingressoHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #2a2a2a;
+    border-bottom: 1px solid #333;
+}
+
+.ingressoNumero {
+    color: #e50914;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status.valido {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border: 1px solid #4caf50;
+}
+
+.status.proximo {
+    background: rgba(255, 152, 0, 0.2);
+    color: #ff9800;
+    border: 1px solid #ff9800;
+}
+
+.status.expirado {
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    border: 1px solid #f44336;
+}
+
+.ingressoBody {
+    padding: 25px;
+}
+
+.infoRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.infoRow:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.label {
+    color: #888;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.value {
+    color: #fff;
+    font-weight: 600;
+    text-align: right;
+}
+
+.tipoIngresso {
+    background: rgba(229, 9, 20, 0.1);
+    color: #e50914;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.ingressoFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #2a2a2a;
+    border-top: 1px solid #333;
+}
+
+.valorTotal {
+    color: #e50914;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.detailsButton {
+    background: transparent;
+    color: #e50914;
+    border: 1px solid #e50914;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.detailsButton:hover {
+    background: #e50914;
+    color: white;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .ingressosGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ingressoHeader,
+    .ingressoBody,
+    .ingressoFooter {
+        padding: 15px;
+    }
+    
+    .infoRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .value {
+        text-align: left;
+    }
+    
+    .ingressoFooter {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.7rem;
+    }
+    
+    .emptyState {
+        padding: 40px 20px;
+    }
+    
+    .emptyIcon {
+        font-size: 3rem;
+    }
+}

@@ -1,0 +1,90 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  max-width: 1400px; /* LIMITE MÁXIMO DA PÁGINA */
+  margin: 0 auto; /* CENTRALIZA NA TELA */
+  overflow-x: hidden; /* EVITA SCROLL HORIZONTAL */
+}
+
+.heroSection {
+  margin-bottom: 40px;
+}
+
+.programmingSection,
+.comingSoonSection {
+  padding: 30px 0;
+  background: #0a0a0a;
+}
+
+.programmingSection {
+  border-bottom: 1px solid #333;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.sectionTitle h2 {
+  font-size: 2rem; /* TAMANHO REDUZIDO */
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.titleIcon {
+  font-size: 1.5rem;
+}
+
+.sectionSubtitle p {
+  font-size: 1rem;
+  color: #ccc;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%; /* EM MOBILE OCUPA TUDO */
+    padding: 0 10px;
+  }
+  
+  .sectionTitle h2 {
+    font-size: 1.5rem;
+  }
+  
+  .titleIcon {
+    font-size: 1.2rem;
+  }
+  
+  .sectionSubtitle p {
+    font-size: 0.9rem;
+  }
+  
+  .programmingSection,
+  .comingSoonSection {
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle h2 {
+    font-size: 1.3rem;
+  }
+  
+  .sectionHeader {
+    margin-bottom: 20px;
+  }
+}

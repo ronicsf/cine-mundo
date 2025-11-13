@@ -1,0 +1,147 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.movieCard {
+  background: rgb(14, 13, 13);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movieCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.posterContainer {
+  width: 100%;
+  height: 350px; /* Altura fixa para o poster */
+  overflow: hidden;
+  position: relative;
+}
+
+.poster {
+  width: 100%;
+  height: 100%;
+  background-size: cover; /* Mude para 'contain' se quiser ver imagem completa */
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.movieCard:hover .poster {
+  transform: scale(1.05);
+}
+
+.rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.movieTitle {
+  padding: 15px 15px 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #bbb9b9;
+  text-align: center;
+  line-height: 1.3;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buyButton {
+  width: calc(100% - 30px);
+  margin: 10px 15px 15px;
+  padding: 12px;
+  background: #e50914;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.buyButton:hover {
+  background: #b8070f;
+}
+
+/* Estado de loading */
+.loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.error {
+  text-align: center;
+  color: #ff4444;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #ffeaea;
+  border-radius: 8px;
+}
+
+.empty {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 18px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.posterImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ou 'contain' para ver imagem completa */
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+.movieCard:hover .posterImage {
+  transform: scale(1.05);
+}
+
+.posterPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: #141414;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+}
+
+.posterPlaceholder span {
+  margin-top: 8px;
+  font-size: 12px;
+}
