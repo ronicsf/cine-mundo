@@ -34,10 +34,10 @@ export default function Ingresso() {
     const carregarIngressos = async () => {
         try {
             setLoading(true);
-            const response = await fetch("http://localhost:3001/ingressos");
+            const response = await fetch("http://localhost:3001/ingresso");
             
             if (!response.ok) {
-                throw new Error(`Erro ao carregar ingressos: ${response.status}`);
+                throw new Error(`Erro ao carregar ingresso: ${response.status}`);
             }
 
             const ingressosData: Ingresso[] = await response.json();
