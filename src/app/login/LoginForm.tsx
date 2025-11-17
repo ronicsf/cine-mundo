@@ -17,10 +17,26 @@ export default function LoginForm() {
 
     try {
       console.log('Tentando login:', { email, password });
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      router.push('/dashboard');
+
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        console.log('✅ Login bem-sucedido:', data.cliente);
+        router.push('/dashboard');
+      } else {
+        console.error('❌ Falha no login:', data.error);
+        alert(data.error || 'Erro no login');
+      }
     } catch (error) {
       console.error('Erro no login:', error);
+      alert('Erro interno do servidor');
     } finally {
       setLoading(false);
     }

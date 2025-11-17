@@ -141,7 +141,7 @@ export default function Ingresso() {
     return (
         <div className={styles.container}>
             <header className={styles.header}>
-                <h1>🎫 Meus Ingressos</h1>
+                <h1>🎫 Historico de compras </h1>
                 <p>Gerencie e visualize todos os seus ingressos</p>
             </header>
 
