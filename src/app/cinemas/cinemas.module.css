@@ -1,0 +1,112 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: #ccc;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.cinemasGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+.cinemaCard {
+  background: #1a1a1a;
+  border-radius: 12px;
+  border: 1px solid #333;
+  padding: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.cinemaCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  border-color: #e50914;
+}
+
+.cinemaNome {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.cinemaEndereco {
+  color: #ccc;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.cinemaTelefone {
+  color: #888;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.verLocalizacaoBtn {
+  width: 100%;
+  padding: 12px;
+  background: #e50914;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.verLocalizacaoBtn:hover {
+  background: #b8070f;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 15px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .cinemasGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cinemaCard {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}
