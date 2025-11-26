@@ -8,14 +8,14 @@ const featuredMovies = [
   {
     id: 1,
     title: "Duna: Parte Dois",
-    image: "/images/duna2.jpg",
+    image: "/duna.jpg",
     description: "A jornada de Paul Atreides continua"
   },
   {
     id: 2, 
-    title: "Deadpool & Wolverine",
-    image: "/images/deadpool.jpg",
-    description: "A dupla mais aguardada dos cinemas"
+    title: "Avatar fogo e cinzas",
+    image: "/avatar.webp",
+    description: "um novo amanhecer para Pandora"
   },
   {
     id: 3,
@@ -51,7 +51,7 @@ export default function MovieCarousel() {
               <div className={styles.slideContent}>
                 <h3 className={styles.movieTitle}>{movie.title}</h3>
                 <p className={styles.movieDescription}>{movie.description}</p>
-                <button className={styles.ctaButton}>Comprar Ingressos</button>
+                <button className={styles.ctaButton}>Faca sua reserva </button>
               </div>
             </div>
           </div>
