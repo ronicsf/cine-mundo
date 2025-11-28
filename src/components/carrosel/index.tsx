@@ -2,6 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import styles from './carrosel.module.css';
 
 const featuredMovies = [
@@ -51,7 +52,7 @@ export default function MovieCarousel() {
               <div className={styles.slideContent}>
                 <h3 className={styles.movieTitle}>{movie.title}</h3>
                 <p className={styles.movieDescription}>{movie.description}</p>
-                <button className={styles.ctaButton}>Faca sua reserva </button>
+                <button className={styles.ctaButton}>Faca sua reserva</button>
               </div>
             </div>
           </div>

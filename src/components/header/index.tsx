@@ -11,7 +11,7 @@ export function Header() {
       
       <nav className={styles.nav}>
         <Link href="/" className={styles.navLink}>Home</Link>
-        <Link href="/filme" className={styles.navLink}>Filmes</Link>
+        <Link href="/ingresso" className={styles.navLink}>Ingressos</Link>
         <Link href="/promocoes" className={styles.navLink}>Promoções</Link>
         <Link href="/cinemas" className={styles.navLink}>Cinemas</Link>
       </nav>

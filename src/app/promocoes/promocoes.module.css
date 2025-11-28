@@ -1,9 +1,9 @@
 .container {
   min-height: 100vh;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-  max-width: 1400px; /* LIMITE MÁXIMO DA PÁGINA */
-  margin: 0 auto; /* CENTRALIZA NA TELA */
-  overflow-x: hidden; /* EVITA SCROLL HORIZONTAL */
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow-x: hidden;
 }
 
 .heroSection {
@@ -18,22 +18,181 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 20px;
+  padding-top: 20px; /* Adicionei um padding para não colar no topo */
+}
+
+.loyaltySection {
+  padding: 3rem 2rem;
+  background-color: #fff;
+  margin: 2rem auto;
+  max-width: 1200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loyaltyTitle {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.loyaltyDescription {
+  font-size: 1.2rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.loyaltyPlans {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Base do Card */
+.plan {
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  color: #fff; /* Texto base branco */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s; /* Efeito suave ao passar o mouse */
+}
+
+.plan:hover {
+  transform: translateY(-5px); /* Card sobe levemente ao passar o mouse */
+}
+
+/* Variações de Cores */
+.planBasic {
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  border: 2px solid #4CAF50;
+}
+
+.planPremium {
+  background: linear-gradient(135deg, #FF9800, #EF6C00);
+  border: 2px solid #FF9800;
+}
+
+.planVip {
+  background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+  border: 2px solid #9C27B0;
+}
+
+/* Tipografia dentro dos Cards - CORRIGIDO PARA BRANCO */
+.plan h3 {
+  font-size: 1.5rem;
+  color: #ffffff; /* Branco puro */
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2); /* Sombra para leitura */
+}
+
+.plan p {
+  font-size: 1rem;
+  color: #f1f1f1; /* Branco suave (off-white) */
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+/* Benefícios Gerais (fora dos cards) */
+.loyaltyBenefits {
+  margin-bottom: 2rem;
+}
+
+.loyaltyBenefits h3 {
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.loyaltyBenefits ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto; /* Centraliza a lista */
+}
+
+.loyaltyBenefits li {
+  margin-bottom: 0.5rem;
+}
+
+.joinNow {
+  text-align: center;
+}
+
+.joinButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.joinButton:hover {
+  background-color: #0056b3;
 }
 
 /* Responsivo */
 @media (max-width: 768px) {
   .container {
-    max-width: 100%; /* EM MOBILE OCUPA TUDO */
+    max-width: 100%;
     padding: 0 10px;
   }
 
   .pageTitle {
     font-size: 2rem;
   }
+
+  .loyaltySection {
+    padding: 2rem 1rem;
+  }
+
+  .loyaltyPlans {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .plan {
+    width: 100%;
+    max-width: 400px;
+  }
 }
 
 @media (max-width: 480px) {
   .pageTitle {
     font-size: 1.8rem;
+  }
+
+  .loyaltyTitle {
+    font-size: 1.5rem;
+  }
+
+  .loyaltyDescription {
+    font-size: 1rem;
+  }
+
+  .plan h3 {
+    font-size: 1.2rem;
+  }
+
+  .plan p {
+    font-size: 0.9rem;
+  }
+
+  .joinButton {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
   }
 }
