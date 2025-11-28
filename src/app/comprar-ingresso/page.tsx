@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation';
+import { cookies } from 'next/headers';
 
 interface Filme {
   id: number;
@@ -7,6 +8,12 @@ interface Filme {
   classificacao_indicativa: number;
   duracao: number;
   poster: string;
+}
+
+interface Cliente {
+  id: number;
+  nome: string;
+  email: string;
 }
 
 // Função para buscar dados do filme
@@ -26,7 +33,7 @@ async function carregarFilme(id: string): Promise<Filme | null> {
   }
 }
 
-function FormularioCompra({ filmeId }: { filmeId: string }) {
+function FormularioCompra({ filmeId, clienteId }: { filmeId: string; clienteId: number }) {
   return (
     <div style={{ 
       padding: '30px', 
@@ -38,6 +45,7 @@ function FormularioCompra({ filmeId }: { filmeId: string }) {
       
       <form action="/api/comprar" method="POST">
         <input type="hidden" name="filmeId" value={filmeId} />
+        <input type="hidden" name="clienteId" value={clienteId.toString()} />
         
         <div style={{ marginBottom: '20px' }}>
           <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>
@@ -118,6 +126,21 @@ export default async function ComprarIngresso(props: {
     redirect('/');
   }
 
+  // Verifica se o usuário está logado
+  const cookieStore = await cookies();
+  const clienteCookie = cookieStore.get('cliente')?.value;
+
+  if (!clienteCookie) {
+    redirect(`/login?returnUrl=/comprar-ingresso?id=${filmeId}`);
+  }
+
+  let cliente: Cliente;
+  try {
+    cliente = JSON.parse(clienteCookie);
+  } catch (error) {
+    redirect(`/login?returnUrl=/comprar-ingresso?id=${filmeId}`);
+  }
+
   // Carrega dados do filme
   const filme = await carregarFilme(filmeId);
 
@@ -133,9 +156,7 @@ export default async function ComprarIngresso(props: {
       minHeight: '100vh',
       color: 'white'
     }}>
-      <h1>🎫 Comprar Ingresso</h1>
-      <p style={{ color: '#0f0' }}>✅ Funcionando com dados da API!</p>
-      
+     
       {/* Informações do Filme */}
       <div style={{ 
         display: 'flex', 
@@ -181,7 +202,7 @@ export default async function ComprarIngresso(props: {
       </div>
 
       {/* Formulário de Compra */}
-      <FormularioCompra filmeId={filmeId} />
+      <FormularioCompra filmeId={filmeId} clienteId={cliente.id} />
 
       <div style={{ marginTop: '30px' }}>
         <a href="/" style={{ color: '#e50914', textDecoration: 'none', fontSize: '16px' }}>

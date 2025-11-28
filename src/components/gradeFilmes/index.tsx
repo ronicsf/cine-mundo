@@ -136,7 +136,7 @@ export default function MovieGrid({ category }: { category: 'now-playing' | 'com
             className={styles.buyButton}
             onClick={() => handleComprarIngresso(filme)}
           >
-            {category === 'now-playing' ? 'COMPRAR INGRESSO' : 'AVISE-ME'}
+            {category === 'now-playing' ? 'COMPRAR INGRESSO' : 'COMPRAR INGRESSO ANTECIPADO'}
           </button>
         </div>
       ))}

@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Retornar sucesso com dados do cliente
-    return NextResponse.json({
+    const response = NextResponse.json({
       success: true,
       cliente: {
         id: loginResult.cliente.id,
@@ -67,6 +67,20 @@ export async function POST(request: NextRequest) {
         email: loginResult.cliente.email
       }
     });
+
+    // Definir cookie com dados do cliente
+    response.cookies.set('cliente', JSON.stringify({
+      id: loginResult.cliente.id,
+      nome: loginResult.cliente.nome,
+      email: loginResult.cliente.email
+    }), {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 60 * 60 * 24 * 7 // 7 dias
+    });
+
+    return response;
 
   } catch (error: any) {
     console.error('❌ Erro no login:', error);

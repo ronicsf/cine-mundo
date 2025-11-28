@@ -2,7 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import styles from './LoginForm.module.css';
 
 export default function LoginForm() {
@@ -10,6 +10,8 @@ export default function LoginForm() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const returnUrl = searchParams.get('returnUrl');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,7 +31,7 @@ export default function LoginForm() {
       const data = await response.json();
       if (data.success) {
         console.log('✅ Login bem-sucedido:', data.cliente);
-        router.push('/dashboard');
+        router.push(returnUrl || '/dashboard');
       } else {
         console.error('❌ Falha no login:', data.error);
         alert(data.error || 'Erro no login');

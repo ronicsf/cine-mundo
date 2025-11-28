@@ -16,13 +16,17 @@ export async function POST(request: NextRequest) {
       filmeId: formData.get('filmeId') as string,
       tipo: formData.get('tipo') as string,
       quantidade: parseInt(formData.get('quantidade') as string),
-      ...IDS_FIXOS
+      clienteId: parseInt(formData.get('clienteId') as string),
+      id_sala: IDS_FIXOS.id_sala,
+      id_pagamento: IDS_FIXOS.id_pagamento,
+      id_sessao: IDS_FIXOS.id_sessao,
+      id_assento: IDS_FIXOS.id_assento
     };
 
     console.log('🛒 Processando compra...');
 
     // Validação
-    if (!compra.filmeId || !compra.tipo || !compra.quantidade) {
+    if (!compra.filmeId || !compra.tipo || !compra.quantidade || !compra.clienteId) {
       return NextResponse.json(
         { success: false, error: 'Dados incompletos' },
         { status: 400 }
@@ -38,7 +42,7 @@ export async function POST(request: NextRequest) {
       data_hora: new Date().toISOString(),
       valor_total: valorTotal,
       tipo_ingresso: compra.tipo,
-      id_cliente: compra.id_cliente,
+      id_cliente: compra.clienteId,
       id_sala: compra.id_sala,
       id_pagamento: compra.id_pagamento,
       id_assento: compra.id_assento,

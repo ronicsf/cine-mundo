@@ -1,0 +1,39 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  max-width: 1400px; /* LIMITE MÁXIMO DA PÁGINA */
+  margin: 0 auto; /* CENTRALIZA NA TELA */
+  overflow-x: hidden; /* EVITA SCROLL HORIZONTAL */
+}
+
+.heroSection {
+  margin-bottom: 40px;
+}
+
+.pageTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%; /* EM MOBILE OCUPA TUDO */
+    padding: 0 10px;
+  }
+
+  .pageTitle {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageTitle {
+    font-size: 1.8rem;
+  }
+}

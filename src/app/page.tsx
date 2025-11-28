@@ -11,12 +11,12 @@ export default function Home() {
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>Em Cartaz</h2>
+        <h2 className={styles.sectionTitle}>EM CARTAZ</h2>
         <MovieGrid category="now-playing" />
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>Em Breve</h2>
+        <h2 className={styles.sectionTitle}>EM BREVE</h2>
         <MovieGrid category="coming-soon" />
       </section>
     </div>
